@@ -1,7 +1,7 @@
-# BePrepared
+# Alertify
 StrangerTeam, SpaceApps Alicante 2018
 
-App to increase survability rates on natural dissasters
+App to increase survivability rates on natural disasters
 
 ## Features
 - Internationalization
