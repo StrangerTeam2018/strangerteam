@@ -34,6 +34,50 @@ module.exports = function() {
     return output;
   }
 
+  function decodeEventCodeType(input) {
+    const code = (input.value||'').split(';')[0];
+    switch (code) {
+      case 'TO': return 'storm';
+      case 'AT': return 'hotwave';
+      case 'BT': return 'coldwave';
+      case 'NE': return 'snow';
+      case 'NI': return 'fog';
+      case 'PR': return 'rain';
+      case 'VI': return 'wind';
+      case 'VS': return 'dust';
+      default:
+        console.log('event code type', input)
+        return code;
+    }
+  }
+
+  function decodeEventCodeLevel(input) {
+    if (!input) {
+      return 'unknown';
+    }
+    let parameters = input;
+    if (!Array.isArray(parameters)) {
+      parameters = [parameters];
+    }
+    let code = 'unknown';
+
+    parameters.forEach(element => {
+      if (element.value === 'verde') {
+        code = 'low';
+      }
+
+      if (element.value === 'amarillo') {
+        code = 'medium';
+      }
+
+      if (element.value === 'red') {
+        code = 'high';
+      }
+    });
+
+    return code;
+  }
+
   async function getAlertsData(urlData, location) {
     try {
       const resp = await axios.get(urlData);
@@ -62,17 +106,17 @@ module.exports = function() {
           if (info.language !== 'es-ES') {
             continue;
           }
+          // console.log(info)
           alerta.urgency = info.urgency;
           alerta.event = info.event;
-          console.log(alerta.event);
-          // alert.type = decodeEventCodeType(info.eventCode);
-          // alert.level = decodeEventCodeLevel(info.eventCode);
-          alerta.effective = info.effective;
-          alerta.onset = info.onset;
-          alerta.expires = info.expires;
-          console.log(info)
-          console.log(info.eventCode)
-          alerta.areas = [];
+          alerta.type = decodeEventCodeType(info.eventCode);
+          alerta.level = decodeEventCodeLevel(info.parameter);
+          alerta.headline = info.headline;
+          alerta.when = {
+            activated: info.onset,
+            expires: info.expires
+          };
+          alerta.area = [];
           let areas = info.area;
           // AREA CAN BE AN ARRAY
           if (!Array.isArray(areas)) {
@@ -86,7 +130,7 @@ module.exports = function() {
 
             polygons.forEach(function(polygonStr) {
               const polygon = makePoligon(polygonStr);
-              alerta.areas.push({polygon: polygon});
+              alerta.area.push({polygon: polygon});
               if (inside([location.lat, location.long], polygon)) {
                 isAffected = true;
               }
@@ -101,7 +145,7 @@ module.exports = function() {
           // alerts.push(alerta);
         }
       }
-      
+
       return alerts;
 
     } catch(e) {
@@ -112,7 +156,6 @@ module.exports = function() {
 
   async function getAlerts(location) {
     let alerts = null;
-    console.log(location);
     const linkData = await getAlertsLinkData(location);
     if (linkData) {
       alerts = await getAlertsData(linkData.datos, location);
