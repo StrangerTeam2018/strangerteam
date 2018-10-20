@@ -23,6 +23,6 @@
   "homepage": "https://github.com/StrangerTeam2018/strangerteam#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "reverse-geocoding-google": "^1.1.0"
+    "node-geocoder": "^3.22.0"
   }
 }
