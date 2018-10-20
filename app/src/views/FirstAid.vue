@@ -9,7 +9,7 @@
       v-tab
         | What's case?
       v-tab
-        | All FistAid tecnhiques
+        | All first aid tecnhiques
 
     v-list(two-line v-if="active === 0")
       template(v-for='(item, index) in cases')
