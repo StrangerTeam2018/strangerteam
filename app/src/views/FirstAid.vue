@@ -6,6 +6,15 @@
       v-btn(icon='' style="color: white !important")
         v-icon fa-search
 
+    v-tabs(v-model='active', color='cyan', dark='', slider-color='yellow') 
+      v-tab
+        | ¿Qué ocurre?
+      v-tab
+        | Todas las técnicas
+      v-tab-item(v-for='n in 3', :key='n')
+        v-card(flat='')
+          v-card-text {{ text }}
+
     v-list(two-line='')
       template(v-for='(item, index) in items')
         v-subheader(v-if='item.header', :key='item.header')
@@ -26,7 +35,7 @@ export default {
   data() {
     return {
       items : [
-        { header: '¿Qué ocurre?' },
+        { header: 'Técnicas' },
         {
           avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
           title: 'Maniobra de heimlich',

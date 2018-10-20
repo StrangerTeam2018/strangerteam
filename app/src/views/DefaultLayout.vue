@@ -1,7 +1,7 @@
 <template lang="pug">
 v-app#alertify
   v-toolbar(color='#535354', dark, app)
-    v-toolbar-title(style="margin: 0 auto;")
+    v-toolbar-title(style="text-align: center; margin: 0 auto")
       span  A L E R T I F Y
 
   v-content
