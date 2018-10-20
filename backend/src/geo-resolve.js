@@ -11,6 +11,8 @@ const geocoder = NodeGeocoder(options);
 const decode = function(input) {
   switch(input) {
     case 'Comunidad Valenciana': return 'Comunitat Valenciana';
+    case 'Castilla-La Mancha': return 'Castilla - La Mancha';
+    case 'Región de Murcia': return 'Murcia, Región de';
     default:
   }
   console.log('Unknown administrative level', input);

@@ -54,6 +54,7 @@ module.exports = function() {
   function decodeEventCodeType(input) {
     const code = (input.value||'').split(';')[0];
     switch (code) {
+      case 'CO': return 'storm'; // Costeros
       case 'TO': return 'storm';
       case 'AT': return 'hotwave';
       case 'BT': return 'coldwave';
@@ -62,6 +63,7 @@ module.exports = function() {
       case 'PR': return 'rain';
       case 'VI': return 'wind';
       case 'VS': return 'dust';
+      case 'AL': return 'avalanche';
       default:
         console.log('Unknown event code type', input)
         return code;
@@ -153,7 +155,10 @@ module.exports = function() {
               const polygon = makePoligon(polygonStr);
               const geoPolygon = makePolygonGeo(polygonStr);
 
-              alerta.area.push({polygon: polygon});
+              alerta.area.push({
+                name: area.areaDesc,
+                polygon: polygon
+              });
               if (geolib.isPointInside({latitude: location.lat, longitude: location.lon}, geoPolygon)) {
                 isAffected = true;
               }
