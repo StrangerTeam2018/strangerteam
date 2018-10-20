@@ -56,7 +56,7 @@ module.exports = function() {
     switch (code) {
       case 'CO': return 'storm'; // Costeros
       case 'TO': return 'storm';
-      case 'AT': return 'hotwave';
+      case 'AT': return 'heatwave';
       case 'BT': return 'coldwave';
       case 'NE': return 'snow';
       case 'NI': return 'fog';
