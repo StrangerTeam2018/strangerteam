@@ -13,7 +13,7 @@
           v-card-title(primary-title)
             div
               .headline
-                div Peligro de ola de calor
+                div {{ $t('alerts.title_heatwave_alert') }}
                   v-chip(color="success" text-color="white") Low
               span.grey--text {{ alert.headline }}
 
@@ -34,7 +34,7 @@
           v-card-title(primary-title)
             div
               .headline
-                div Peligro de Avalancha
+                div {{ $t('alerts.title_avalanche_alert') }}
               span.grey--text Aalancha
           v-card-actions
             v-btn(flat, color='info') Más información
@@ -70,7 +70,7 @@
           v-card-title(primary-title)
             div
               .headline
-                div Alerta de lluvias
+                div {{ $t('alerts.title_rain_alert') }}
               span.grey--text Explicación de donde y cuando llueve
           v-card-actions
             v-btn(flat, color='info') Más información
@@ -89,7 +89,7 @@
           v-card-title(primary-title)
             div
               .headline
-                div Alerta de rachas de vientos fuertes
+                div {{ $t('alerts.title_wind_alert') }}
               span.grey--text Explicación de donde y cuando llueve
           v-card-actions
             v-btn(flat, color='info') Más información
@@ -107,7 +107,7 @@
           v-card-title(primary-title)
             div
               .headline
-                div Peligro Erupción Volcánica
+                div {{ $t('alerts.title_eruption_alert') }}
               span.grey--text Explicación de donde y cuando las inundaciones
           v-card-actions
             v-btn(flat, color='info') Más información
