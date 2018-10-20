@@ -3,7 +3,7 @@
     v-toolbar(color='#89bf39' style="color: white !important;")
       v-toolbar-title Solicitar Ayuda
       v-spacer
-    v-btn(color="error" style="margin-top: 30%;" large href="tel:000") LLAMAR 112
+    v-btn(color="error" style="margin-top: 30%;" large href="http://www.112.es") CALL 112
 </template>
 
 <script>
