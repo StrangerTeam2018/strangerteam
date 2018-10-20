@@ -7,7 +7,7 @@
     
     v-tabs(v-model='active', color='light-green lighten-2', dark, slider-color='yellow')
       v-tab
-        | What's case?
+        | Risk situations
       v-tab
         | All first aid tecnhiques
 
@@ -53,26 +53,26 @@ export default {
       text: '',
       active: null,
       cases : [
-        { header: 'Casos prácticos' },
+        { header: 'Real situations' },
         {
           avatar: 'https://static.thenounproject.com/png/25487-200.png',
-          title: 'Una persona se está atragantando',
+          title: 'A person is choking',
           subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Heimlich maneuver</span></span>`
         },
         {
           avatar: 'https://banner2.kisspng.com/20180403/xte/kisspng-cardiopulmonary-resuscitation-computer-icons-ameri-cdr-5ac3c2ebd8fe37.1164082815227788598888.jpg',
-          title: 'Una persona se está ahogando',
+          title: 'A person is drowning',
           subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Cardiopulmonary reanimation</span></span>`
         },
         {
           avatar: 'https://static.thenounproject.com/png/635143-200.png',
-          title: 'Una persona se ha desmayado',
-          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Posición de seguridad</span></span>`
+          title: 'A person has fainted',
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Security position</span></span>`
         },
         {
           avatar: 'https://image.shutterstock.com/mosaic_250/0/0/379710073.jpg',
-          title: 'Una persona tiene síntomas de congelación',
-          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Posición de seguridad</span></span>`
+          title: 'A person has freezing symptoms',
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Security position</span></span>`
         },
       ],
       techniques : [
