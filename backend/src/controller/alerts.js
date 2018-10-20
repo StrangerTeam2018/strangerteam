@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const axios = require('axios');
 const geocoder = require('../geo-resolve');
-const inside = require('point-in-polygon');
+const geolib = require('geolib');
 const nodexml = require('nodexml');
 
 module.exports = function() {
@@ -19,6 +19,23 @@ module.exports = function() {
       console.error(err);
       return null;
     }
+  }
+
+  function makePolygonGeo(input) {
+    if (!input) {
+      return false;
+    }
+    const output = [];
+    const pointList = input.split(' ');
+    for(point of pointList) {
+      const strCoord = point.split(',');
+      output.push({
+        latitude: parseFloat(strCoord[0]),
+        longitude: parseFloat(strCoord[1])
+      });
+    }
+
+    return output;
   }
 
   function makePoligon(input) {
@@ -46,7 +63,7 @@ module.exports = function() {
       case 'VI': return 'wind';
       case 'VS': return 'dust';
       default:
-        console.log('event code type', input)
+        console.log('Unknown event code type', input)
         return code;
     }
   }
@@ -95,6 +112,7 @@ module.exports = function() {
       const obj = nodexml.xml2obj(xml);
 
       // return obj.alert;
+
       const alerts = [];
       let i = 0;
       for(alert of obj.alert) {
@@ -116,6 +134,10 @@ module.exports = function() {
             activated: info.onset,
             expires: info.expires
           };
+          alerta.more_lines = [];
+          if (info.instruction) {
+            alerta.more_lines.push(info.instruction)
+          }
           alerta.area = [];
           let areas = info.area;
           if (!Array.isArray(areas)) {
@@ -129,19 +151,18 @@ module.exports = function() {
 
             polygons.forEach(function(polygonStr) {
               const polygon = makePoligon(polygonStr);
+              const geoPolygon = makePolygonGeo(polygonStr);
+
               alerta.area.push({polygon: polygon});
-              if (inside([location.lat, location.long], polygon)) {
+              if (geolib.isPointInside({latitude: location.lat, longitude: location.lon}, geoPolygon)) {
                 isAffected = true;
               }
             })
           })
 
-          isAffected = true;
-
           if (isAffected) {
             alerts.push(alerta);
           }
-          // alerts.push(alerta);
         }
       }
 
@@ -153,11 +174,11 @@ module.exports = function() {
     }
   }
 
-  async function getAlerts(location) {
+  async function getAlerts(location, geoloc) {
     let alerts = null;
     const linkData = await getAlertsLinkData(location);
     if (linkData) {
-      alerts = await getAlertsData(linkData.datos, location);
+      alerts = await getAlertsData(linkData.datos, geoloc);
     }
     return alerts;
   }
@@ -196,7 +217,7 @@ module.exports = function() {
       'Rioja, La': 76
     }
 
-    const alerts = await getAlerts(autcomToAEMETCode[autcom]);
+    const alerts = await getAlerts(autcomToAEMETCode[autcom], {lat: lat, lon: long});
 
     return res.json(alerts).end();
   }
