@@ -1,6 +1,6 @@
 <template lang="pug">
 v-app#alertify
-  v-toolbar(color='blue darken-1', dark, app)
+  v-toolbar(color='#535354', dark, app)
     v-toolbar-title
       v-icon.mr-3 fa-skull-crossbones
       span  Alertify: You are not alone!
