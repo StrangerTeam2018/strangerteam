@@ -1,22 +1,21 @@
 <template lang="pug">
 v-app#alertify
   v-toolbar(color='#535354', dark, app)
-    v-toolbar-title
-      v-icon.mr-3 fa-skull-crossbones
-      span  Alertify: You are not alone!
+    v-toolbar-title(style="margin: 0 auto;")
+      span  A L E R T I F Y
 
   v-content
     router-view.view
 
   template
       v-bottom-nav(:active.sync='activeBtn', :value='showNav', fixed, color='white')
-        v-btn(flat, color='teal', to='/alerts')
+        v-btn(flat, color='rgb(137, 191, 57)', to='/alerts')
           span Alertas
           v-icon fa-skull-crossbones
         v-btn(flat, color='error', to='/request-help')
-          span Pedir Ayuda!
+          span Solicitar Ayuda
           v-icon fa-ambulance
-        v-btn(flat, color='info', to='/first-aid')
+        v-btn(flat, color='rgb(137, 191, 57)', to='/first-aid')
           span Primeros Auxilios
           v-icon fa-medkit
 

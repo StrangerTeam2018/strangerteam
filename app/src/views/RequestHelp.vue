@@ -1,9 +1,13 @@
 <template lang="pug">
   div.request-help(style="text-align: center;")
-    v-btn(color="error" style="margin-top: 50%;" large) LLAMAR 112
+    v-toolbar(color='#89bf39' style="color: white !important;")
+      v-toolbar-title Solicitar Ayuda
+      v-spacer
+    v-btn(color="error" style="margin-top: 50%;" large href="tel:000") LLAMAR 112
 </template>
 
 <script>
+
 
 export default {
   name: 'RequestHelp',
@@ -13,3 +17,11 @@ export default {
   }
 };
 </script>
+<style>
+
+  .v-toolbar__title {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+</style>
