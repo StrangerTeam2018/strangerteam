@@ -8,6 +8,8 @@ export default {
       if (response.data.lenght == 0)
         return { type : 'safe' };
 
+      return response.data;
+
       // try to get the level with the highest alert level
       let result = response.data[0];
 
