@@ -21,9 +21,9 @@ export default new Router({
       component: Dashboard,
     },
     {
-      path: '/alerts',
-      name: 'alerts',
-      component: Dashboard,
+      path: '/first-aid',
+      name: 'first-aid',
+      component: lazyLoad ('FirstAid'),
     },
     {
       path: '/about',

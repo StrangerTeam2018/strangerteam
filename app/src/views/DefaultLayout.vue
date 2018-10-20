@@ -15,25 +15,23 @@ v-app#alertify
 
   template
       v-bottom-nav(:active.sync='activeBtn', :value='showNav', absolute, color='transparent')
-        v-btn(flat, color='teal')
+        v-btn(flat, color='teal', to='/')
           span Alertas
           v-icon fa-skull-crossbones
-        v-btn(flat, color='error')
+        v-btn(flat, color='error', to='/request-help')
           span Pedir Ayuda!
           v-icon fa-ambulance
-        v-btn(flat, color='info')
+        v-btn(flat, color='info', to='/first-aid')
           span Primeros Auxilios
           v-icon fa-medkit
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import AppSidebar from '@/components/AppSidebar';
 
 export default {
   name: 'App',
   components : {
-    AppSidebar
   },
   computed : {
     currentRoute() {
