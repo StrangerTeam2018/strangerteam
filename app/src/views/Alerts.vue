@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-layout.mb-5(row, wrap, justify-center)
+  v-layout(row, wrap, justify-center)
     v-flex(v-if='loading', xs12, sm12)
       v-card
         v-card-title

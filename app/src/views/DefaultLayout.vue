@@ -4,7 +4,7 @@ v-app#alertify
     v-toolbar-title(style="text-align: center; margin: 0 auto")
       span  A L E R T I F Y
 
-  v-content
+  v-content.mb-5
     router-view.view
 
   template
