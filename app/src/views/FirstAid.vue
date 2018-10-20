@@ -55,43 +55,43 @@ export default {
       cases : [
         { header: 'Casos prácticos' },
         {
-          avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
+          avatar: 'https://static.thenounproject.com/png/25487-200.png',
           title: 'Una persona se está atragantando',
-          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Maniobra de Heimlich</span></span>`
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Heimlich maneuver</span></span>`
         },
         {
-          avatar: 'https://e.rpp-noticias.io/medium/2015/07/30/1506571.jpg',
+          avatar: 'https://banner2.kisspng.com/20180403/xte/kisspng-cardiopulmonary-resuscitation-computer-icons-ameri-cdr-5ac3c2ebd8fe37.1164082815227788598888.jpg',
           title: 'Una persona se está ahogando',
-          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Reanimación cardiopulmonar</span></span>`
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Cardiopulmonary reanimation</span></span>`
         },
         {
-          avatar: 'https://www.desdelaplaza.com/wp-content/uploads/2015/03/desmayo.jpg',
+          avatar: 'https://static.thenounproject.com/png/635143-200.png',
           title: 'Una persona se ha desmayado',
           subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Posición de seguridad</span></span>`
         },
         {
-          avatar: 'https://album.mediaset.es/eimg/2017/05/30/0Msko292dNEdmf8SANYkM1.jpg',
+          avatar: 'https://image.shutterstock.com/mosaic_250/0/0/379710073.jpg',
           title: 'Una persona tiene síntomas de congelación',
           subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Posición de seguridad</span></span>`
         },
       ],
       techniques : [
-        { header: 'Técnicas' },
+        { header: 'All techniques' },
         {
-          avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
-          title: 'Maniobra de heimlich',
+          avatar: 'https://static.thenounproject.com/png/25487-200.png',
+          title: 'Heimlich maneuver',
           id: 1
         },
         { divider: true, inset: true },
         {
-          avatar: 'https://t2.uc.ltmcdn.com/images/9/5/5/img_como_actuar_ante_un_desmayo_23559_600.jpg',
-          title: 'Desmayos',
+          avatar: 'https://static.thenounproject.com/png/635143-200.png',
+          title: 'Fainting',
           id: 2
         },
         { divider: true, inset: true },
         {
-          avatar: 'https://www.ecestaticos.com/imagestatic/clipping/b23/c8d/b23c8d958075f6459c5f7e9f46f90a22/sintomas-de-infarto-senales-que-te-avisan-de-que-estas-a-punto-de-sufrir-un-ataque.jpg?mtime=1428823698',
-          title: 'Ataque al corazón',
+          avatar: 'https://financialtribune.com/sites/default/files/field/image/ordi/12_Heart%20Attacks.png',
+          title: 'Heart attack',
           id: 3
         },
         { divider: true, inset: true },
