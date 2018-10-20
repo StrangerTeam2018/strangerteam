@@ -24,6 +24,43 @@
           v-card-text(v-show='show')
             | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
+    v-flex(v-else-if='alert.type == "rain"', xs12, sm12)
+      v-card
+        v-img(src='https://media1.giphy.com/media/t7Qb8655Z1VfBGr5XB/giphy.gif?cid=3640f6095bcb45d448522e486feb664f', height='200px')
+        v-card-title(primary-title)
+          div
+            .headline
+              div Alerta de lluvias
+            span.grey--text Explicación de donde y cuando llueve
+        v-card-actions
+          v-btn(flat, color='info') Más información
+          v-btn(flat, color='info') ¿Cómo protegerte?
+          v-spacer
+          v-btn(icon, @click='show = !show')
+            v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
+        v-slide-y-transition
+          v-card-text(v-show='show')
+            | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+
+
+    v-flex(v-else-if='alert.type == "wind"', xs12, sm12)
+      v-card
+        v-img(src='https://media0.giphy.com/media/zixAjO2PqwujK/giphy.gif', height='200px')
+        v-card-title(primary-title)
+          div
+            .headline
+              div Alerta de rachas de vientos fuertes
+            span.grey--text Explicación de donde y cuando llueve
+        v-card-actions
+          v-btn(flat, color='info') Más información
+          v-btn(flat, color='info') ¿Cómo protegerte?
+          v-spacer
+          v-btn(icon, @click='show = !show')
+            v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
+        v-slide-y-transition
+          v-card-text(v-show='show')
+            | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+
     v-flex(v-else-if='alert.type == "eruption"', xs12, sm12)
       v-card
         v-img(src='https://media0.giphy.com/media/wJqcBmCtGy8ik/giphy.gif?cid=3640f6095bcb28555758737555c5c7f3', height='200px')

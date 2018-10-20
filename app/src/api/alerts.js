@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function delay (data) {
   return new Promise (function (resolve, reject) {
-    setTimeout (function () { resolve (data) }, 1500);
+    setTimeout (function () { resolve (data) }, 10);
   })
 }
 
@@ -17,9 +17,16 @@ export default {
       const response = {
         data : {
           type : 'flood',
-          where : { lat : 38.928, long : 0.322 },
-          brief : 'Está todo inundado!! Vamos a morir todos!',
-          description : 'this is what needs to be displayed on the other page'
+          level : 'high',
+          when : {
+            activated : 'iso-date',
+            expires : 'iso-date'
+          },
+          headline : 'Está todo inundado!! Vamos a morir todos!',
+          more_info : [
+            // ... strings ...
+          ],
+          area : [],
         }
       };
       return await delay (response.data);
