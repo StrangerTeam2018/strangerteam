@@ -1,5 +1,4 @@
 const http = require('http');
-const https = require('https');
 const fs = require('fs');
 const express = require('express');
 const routes = require('./routes.js');
@@ -17,22 +16,9 @@ class Server {
   async start(sslConfig = null) {
     const app = await this.createApp();
 
-    if (sslConfig) {
-      console.info('Create HTTPS server: ' + this.port);
-      this.server = https.createServer(
-        {
-          key: sslConfig.key ? fs.readFileSync(sslConfig.key) : null,
-          cert: sslConfig.cert ? fs.readFileSync(sslConfig.cert) : null
-        },
-        app
-      );
-    } else {
-      this.server = http.createServer(app);
-    }
-
+    this.server = http.createServer(app);
     this.server.on('error', this.onError);
     this.server.on('listening', this.onListening);
-
     this.server.listen(this.port, this.ip);
   }
 

@@ -5,7 +5,7 @@ module.exports = class Application {
 
   start() {
     const sslPort = Application.normalizePort(
-      config.ssl.port || '443'
+      config.port || '8080'
     );
     this.createServer(sslPort, config.ssl);
   }

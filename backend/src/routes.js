@@ -1,9 +1,10 @@
 const express = require('express');
+const router = express.Router();
+const version = require ('./controller/version')();
 
 module.exports = function(app) {
-  const router = express.Router();
 
-  // router.use('/', require(''));
+  router.get('/version', version.version);
 
   app.use('/', router);
 }
