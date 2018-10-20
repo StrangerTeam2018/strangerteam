@@ -6,6 +6,7 @@ const alerts = require ('./controller/alerts')();
 module.exports = function(app) {
 
   router.get('/version', version.version);
+  router.get('/test', version.test);
 
   router.get('/alerts/:lat/:long', alerts.alertByGeoLoc);
 
