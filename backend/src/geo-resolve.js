@@ -10,10 +10,24 @@ const geocoder = NodeGeocoder(options);
 
 const decode = function(input) {
   switch(input) {
-    case 'Comunidad Valenciana': return 'Comunitat Valenciana';
+    case 'Andalucía': return 'Andalucía';
+    case 'Aragón': return 'Aragón';
+    case 'Canarias': return 'Canarias';
+    case 'Cantabria': return 'Cantabria';
     case 'Castilla-La Mancha': return 'Castilla - La Mancha';
-    case 'Región de Murcia': return 'Murcia, Región de';
+    case 'Castilla y León': return 'Castilla y León';
     case 'Catalunya': return 'Cataluña';
+    case 'Ceuta': return 'Ceuta';
+    case 'Comunidad de Madrid': return 'Madrid, Comunidad de';
+    case 'Comunidad Valenciana': return 'Comunitat Valenciana';
+    case 'Euskadi': return 'País Vasco';
+    case 'Extremadura': return 'Extremadura';
+    case 'Galicia': return 'Galicia';
+    case 'Islas Baleares': return 'Ballears, Illes';
+    case 'La Rioja': return 'Rioja, La';
+    case 'Melilla': return 'Melilla';
+    case 'Principado de Asturias': return 'Asturias, Principado de';
+    case 'Región de Murcia': return 'Murcia, Región de';
     default:
   }
   console.log('Unknown administrative level', input);
