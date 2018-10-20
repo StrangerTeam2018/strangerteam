@@ -5,11 +5,6 @@ v-app#alertify
       v-icon.mr-3 fa-skull-crossbones
       span  Alertify: You are not alone!
 
-    // v-text-field.hidden-sm-and-down(flat, solo-inverted, hide-details, prepend-inner-icon='search', label='Search')
-    // v-spacer
-    // v-btn(icon, flat)
-    //   v-icon fa-door-open
-
   v-content
     router-view.view
 
@@ -24,6 +19,7 @@ v-app#alertify
         v-btn(flat, color='info', to='/first-aid')
           span Primeros Auxilios
           v-icon fa-medkit
+
 </template>
 
 <script>
