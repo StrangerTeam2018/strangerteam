@@ -2,6 +2,15 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Alerts from './views/Alerts.vue';
 import ProtectYourselfFlooding from './views/ProtectYourself/Flooding.en.vue'
+import ProtectYourselfStorm from './views/ProtectYourself/Storm.en.vue'
+import ProtectYourselfRain from './views/ProtectYourself/Rain.en.vue'
+import ProtectYourselfColdWave from './views/ProtectYourself/ColdWave.en.vue'
+import ProtectYourselfHotWave from './views/ProtectYourself/HotWave.en.vue'
+import ProtectYourselfSnow from './views/ProtectYourself/Snow.en.vue'
+import ProtectYourselfFog from './views/ProtectYourself/Fog.en.vue'
+import ProtectYourselfWind from './views/ProtectYourself/Wind.en.vue'
+import ProtectYourselfDust from './views/ProtectYourself/Dust.en.vue'
+
 
 Vue.use(Router);
 
@@ -41,6 +50,46 @@ export default new Router({
       path: '/protect-yourself/flooding',
       name: 'protect-yourself-flooding',
       component: ProtectYourselfFlooding,
+    },
+    {
+      path: '/protect-yourself/storm',
+      name: 'protect-yourself-storm',
+      component: ProtectYourselfStorm,
+    },
+    {
+      path: '/protect-yourself/rain',
+      name: 'protect-yourself-rain',
+      component: ProtectYourselfRain,
+    },
+    {
+      path: '/protect-yourself/coldwave',
+      name: 'protect-yourself-coldwave',
+      component: ProtectYourselfColdWave,
+    },
+    {
+      path: '/protect-yourself/hotwave',
+      name: 'protect-yourself-hotwave',
+      component: ProtectYourselfHotWave,
+    },
+    {
+      path: '/protect-yourself/snow',
+      name: 'protect-yourself-snow',
+      component: ProtectYourselfSnow,
+    },
+    {
+      path: '/protect-yourself/fog',
+      name: 'protect-yourself-fog',
+      component: ProtectYourselfFog,
+    },
+    {
+      path: '/protect-yourself/wind',
+      name: 'protect-yourself-wind',
+      component: ProtectYourselfWind,
+    },
+    {
+      path: '/protect-yourself/dust',
+      name: 'protect-yourself-dust',
+      component: ProtectYourselfDust,
     },
     {
       path: '/first-aid',
