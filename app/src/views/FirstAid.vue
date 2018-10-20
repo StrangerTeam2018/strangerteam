@@ -4,8 +4,6 @@
       v-toolbar-title Primeros Auxilios
       v-spacer
       v-btn(icon='' style="color: white !important")
-        v-icon fa-search
-
     v-tabs(v-model='active', color='cyan', dark='', slider-color='yellow') 
       v-tab
         | ¿Qué ocurre?
@@ -15,8 +13,20 @@
         v-card(flat='')
           v-card-text {{ text }}
 
-    v-list(two-line='')
-      template(v-for='(item, index) in items')
+    v-list(two-line='' v-if="active === 0")
+      template(v-for='(item, index) in cases')
+        v-subheader(v-if='item.header', :key='item.header')
+          | {{ item.header }}
+        v-divider(v-else-if='item.divider', :inset='item.inset', :key='index')
+        v-list-tile(v-else='', :key='item.title', avatar='', @click='')
+          v-list-tile-avatar
+            img(:src='item.avatar')
+          v-list-tile-content
+            v-list-tile-title(v-html='item.title')
+            v-list-tile-sub-title(v-html='item.subtitle')
+
+    v-list(two-line='' v-if="active === 1")
+      template(v-for='(item, index) in techniques')
         v-subheader(v-if='item.header', :key='item.header')
           | {{ item.header }}
         v-divider(v-else-if='item.divider', :inset='item.inset', :key='index')
@@ -34,7 +44,32 @@ export default {
   name: 'FirstAid',
   data() {
     return {
-      items : [
+      text: '',
+      active: null,
+      cases : [
+        { header: 'Casos prácticos' },
+        {
+          avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
+          title: 'Una persona se está atragantando',
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Maniobra de Heimlich</span></span>`
+        },
+        {
+          avatar: 'https://e.rpp-noticias.io/medium/2015/07/30/1506571.jpg',
+          title: 'Una persona se está ahogando',
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Reanimación cardiopulmonar</span></span>`
+        },
+        {
+          avatar: 'https://www.desdelaplaza.com/wp-content/uploads/2015/03/desmayo.jpg',
+          title: 'Una persona se ha desmayado',
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Posición de seguridad</span></span>`
+        },
+        {
+          avatar: 'https://album.mediaset.es/eimg/2017/05/30/0Msko292dNEdmf8SANYkM1.jpg',
+          title: 'Una persona tiene síntomas de congelación',
+          subtitle: `<span tabindex="0" class="v-chip theme--light"><span class="v-chip__content">Posición de seguridad</span></span>`
+        },
+      ],
+      techniques : [
         { header: 'Técnicas' },
         {
           avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
@@ -55,6 +90,12 @@ export default {
         },
         { divider: true, inset: true },
       ]
+    }
+  },
+  methods: {
+    next () {
+      const active = parseInt(this.active)
+      this.active = (active < 2 ? active + 1 : 0)
     }
   }
 };
