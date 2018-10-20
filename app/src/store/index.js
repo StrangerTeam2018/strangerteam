@@ -52,15 +52,16 @@ export default new Vuex.Store({
     // The idea is to initialize all the data needed to star the application
     // -------------------------------------------------------------------------
     async initialize (store) {
-      await store.dispatch ('getAlertInfo');
+      await store.dispatch ('getAlertInfo', { lat: 42.589, long : -5.57});
+      //await store.dispatch ('getAlertInfo', { lat: 42.99, long : -8.28});
       store.commit (types.SET_INITIALIZED);
     },
 
     // -------------------------------------------------------------------------
     // getAlertInfo
     // -------------------------------------------------------------------------
-    async getAlertInfo ({commit}) {
-      const data = await AlertsApi.fetchAlert ();
+    async getAlertInfo ({commit}, { lat, long }) {
+      const data = await AlertsApi.fetchAlert (lat, long);
       commit (types.SET_ALERT, data);
     }
 

@@ -16,6 +16,6 @@ new Vue({
   render: h => h(MainApp),
   created() {
     // initialize store
-    this.$store.dispatch('initialize');
+    this.$store.dispatch('initialize', { lat: 0, long : 0 });
  }
 }).$mount('#app');

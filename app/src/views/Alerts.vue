@@ -1,14 +1,52 @@
 <template lang="pug">
-  v-layout.mb-5(row, wrap, justify-center)
+  v-layout(row, wrap, justify-center)
     v-flex(v-if='loading', xs12, sm12)
       v-card
         v-card-title
           v-flex(text-xs-center)
             v-progress-circular(indeterminate color="#6cf" size="80")
 
+    v-flex(v-else-if='alert.type == "heatwave"', xs12, sm12)
+      v-card
+        v-img(src='https://media1.giphy.com/media/xT0wlvGLHmojbeu5vq/giphy.gif', height='200px')
+        v-card-title(primary-title)
+          div
+            .headline
+              div Peligro de ola de calor
+                v-chip(color="success" text-color="white") Low
+
+        v-card-actions
+          v-btn(flat, color='info') Más información
+          v-btn(flat, color='info', to='/protect-yourself/heatwave') ¿Cómo protegerte?
+          v-spacer
+          v-btn(icon, @click='show = !show')
+            v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
+        v-slide-y-transition
+          v-card-text(v-show='show')
+            | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+
+
+    v-flex(v-else-if='alert.type == "avalanche"', xs12, sm12)
+      v-card
+        v-img(src='https://media0.giphy.com/media/ZTjQgJGDiuJZS/giphy.gif', height='200px')
+        v-card-title(primary-title)
+          div
+            .headline
+              div Peligro de Avalancha
+            span.grey--text Aalancha
+        v-card-actions
+          v-btn(flat, color='info') Más información
+          v-btn(flat, color='info', to='/protect-yourself/avalanche') ¿Cómo protegerte?
+          v-spacer
+          v-btn(icon, @click='show = !show')
+            v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
+        v-slide-y-transition
+          v-card-text(v-show='show')
+            | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+
     v-flex(v-else-if='alert.type == "flood"', xs12, sm12)
       v-card
-        v-img(src='https://media2.giphy.com/media/u0l83hl7HZYKBNeuGB/giphy.gif?cid=3640f6095bcb055074624e6c4d1fc437', height='200px')
+        v-img(src='https://media2.giphy.com/media/u0l83hl7HZYKBNeuGB/giphy.gif', height='200px')
         v-card-title(primary-title)
           div
             .headline
@@ -26,7 +64,7 @@
 
     v-flex(v-else-if='alert.type == "rain"', xs12, sm12)
       v-card
-        v-img(src='https://media1.giphy.com/media/t7Qb8655Z1VfBGr5XB/giphy.gif?cid=3640f6095bcb45d448522e486feb664f', height='200px')
+        v-img(src='https://media1.giphy.com/media/t7Qb8655Z1VfBGr5XB/giphy.gif', height='200px')
         v-card-title(primary-title)
           div
             .headline
@@ -34,7 +72,7 @@
             span.grey--text Explicación de donde y cuando llueve
         v-card-actions
           v-btn(flat, color='info') Más información
-          v-btn(flat, color='info') ¿Cómo protegerte?
+          v-btn(flat, color='info', to='/protect-yourself/rain') ¿Cómo protegerte?
           v-spacer
           v-btn(icon, @click='show = !show')
             v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
@@ -53,7 +91,7 @@
             span.grey--text Explicación de donde y cuando llueve
         v-card-actions
           v-btn(flat, color='info') Más información
-          v-btn(flat, color='info') ¿Cómo protegerte?
+          v-btn(flat, color='info', to='/protect-yourself/wind') ¿Cómo protegerte?
           v-spacer
           v-btn(icon, @click='show = !show')
             v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
@@ -63,7 +101,7 @@
 
     v-flex(v-else-if='alert.type == "eruption"', xs12, sm12)
       v-card
-        v-img(src='https://media0.giphy.com/media/wJqcBmCtGy8ik/giphy.gif?cid=3640f6095bcb28555758737555c5c7f3', height='200px')
+        v-img(src='https://media0.giphy.com/media/wJqcBmCtGy8ik/giphy.gif', height='200px')
         v-card-title(primary-title)
           div
             .headline
@@ -71,7 +109,7 @@
             span.grey--text Explicación de donde y cuando las inundaciones
         v-card-actions
           v-btn(flat, color='info') Más información
-          v-btn(flat, color='info') ¿Cómo protegerte?
+          v-btn(flat, color='info', to='/protect-yourself/eruption') ¿Cómo protegerte?
           v-spacer
           v-btn(icon, @click='show = !show')
             v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
@@ -81,7 +119,7 @@
 
     v-flex(v-else, xs12, sm12)
       v-card
-        v-img(src='https://media1.giphy.com/media/11sBLVxNs7v6WA/giphy.gif?cid=3640f6095bcb38e55a6467776f95e749', height='200px')
+        v-img(src='https://media1.giphy.com/media/11sBLVxNs7v6WA/giphy.gif', height='200px')
         v-card-title(primary-title)
           div
             .headline
