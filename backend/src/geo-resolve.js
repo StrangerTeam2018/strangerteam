@@ -13,6 +13,7 @@ const decode = function(input) {
     case 'Comunidad Valenciana': return 'Comunitat Valenciana';
     case 'Castilla-La Mancha': return 'Castilla - La Mancha';
     case 'Región de Murcia': return 'Murcia, Región de';
+    case 'Catalunya': return 'Cataluña';
     default:
   }
   console.log('Unknown administrative level', input);
