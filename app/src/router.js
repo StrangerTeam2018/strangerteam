@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Alerts from './views/Alerts.vue';
-import ProtectYourselfFlooding from './views/ProtectYourself/Flooding.vue'
+import ProtectYourselfFlooding from './views/ProtectYourself/Flooding.en.vue'
 
 Vue.use(Router);
 

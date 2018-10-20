@@ -27,12 +27,12 @@ export default new Vuex.Store({
     page : {
       initialized : false
     },
-    alert : {
+    alerts : [{
       type : 'flood', // FIXME!
       where : { lat : 38.928, long : 0.322 },
       brief : 'Está todo inundado!! Vamos a morir todos!',
       description : 'this is what needs to be displayed on the other page'
-    }
+    }]
   },
   mutations: {
     [types.SET_INITIALIZED] : function (state) {
@@ -42,7 +42,7 @@ export default new Vuex.Store({
       if (!alertData)
         return
 
-      Vue.set (state, 'alert', alertData);
+      Vue.set (state, 'alerts', alertData);
     }
   },
   actions: {
