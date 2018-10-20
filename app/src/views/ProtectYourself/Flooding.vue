@@ -1,7 +1,7 @@
 <template lang="pug">
 
   v-flex(xs12, sm12)
-    v-card.ma-4.elevation-8(color="blue darken-1", dark)
+    v-card.ma-4.elevation-8(color="cyan darken-2", dark)
       v-card-title(primary-title)
         div
           .headline
@@ -17,7 +17,7 @@
                 li maremotos
                 li huracanes,...
 
-    v-card.ma-4.elevation-8(color="orange lighten-3")
+    v-card.ma-4.elevation-8(color="purple", dark)
       v-card-title(primary-title)
         div
           .headline Consejos de Seguridad
