@@ -1,0 +1,27 @@
+{
+  "name": "alertify-backend",
+  "version": "1.0.0",
+  "description": "Backend for alertify app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrangerTeam2018/strangerteam.git"
+  },
+  "keywords": [
+    "spaceapps2018",
+    "alert",
+    "metereologic"
+  ],
+  "author": "StrangerTeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StrangerTeam2018/strangerteam/issues"
+  },
+  "homepage": "https://github.com/StrangerTeam2018/strangerteam#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
