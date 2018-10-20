@@ -8,25 +8,35 @@ const options = {
 
 const geocoder = NodeGeocoder(options);
 
-module.exports = {
-  reverse: function (lat, lon, callback) {
-    assert(process.env.GOOGLE_API_KEY, 'Missing google api key');
+const decode = function(input) {
+  switch(input) {
+    case 'Comunidad Valenciana': return 'Comunitat Valenciana';
+    default:
+  }
+  console.log('Unknown administrative level', input);
+  return false;
+}
 
-    const config = {
-      lat: lat,
-      lon: lon
+module.exports = {
+  reverse: async function(lat, lon) {
+    assert(process.env.GOOGLE_API_KEY, 'Missing google api key');
+    return await geocoder.reverse({ lat: lat, lon: lon})
+  },
+  administrativeLevel: function(res) {
+    const levels = res.administrativeLevels
+    if (levels) {
+      for(const level of Object.keys(levels)) {
+        const decoded = decode(levels[level]);
+        if (decoded) {
+          return decoded;
+        }
+      }
     }
 
-    geocoder
-      .reverse(config, function (err, res){
-        if (err) {
-          console.log('ERROR');
-          console.error(err);
-          callback(err);
-        } else {
-          console.log(res);
-          callback(undefined, res);
-        }
-      });
+    if (res.countryCode === 'ES') {
+      return 'España';
+    }
+
+    return false;
   }
 }
