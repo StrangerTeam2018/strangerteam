@@ -118,7 +118,6 @@ module.exports = function() {
           };
           alerta.area = [];
           let areas = info.area;
-          // AREA CAN BE AN ARRAY
           if (!Array.isArray(areas)) {
             areas = [areas]
           }
