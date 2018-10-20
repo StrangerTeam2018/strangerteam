@@ -9,7 +9,7 @@ v-app#alertify
     router-view.view
 
   template
-      v-bottom-nav(:active.sync='activeBtn', :value='showNav', absolute, color='transparent')
+      v-bottom-nav(:active.sync='activeBtn', :value='showNav', fixed, color='white')
         v-btn(flat, color='teal', to='/alerts')
           span Alertas
           v-icon fa-skull-crossbones
@@ -36,7 +36,7 @@ export default {
   },
   data() {
     return {
-      activeBtn : 1, // FIXME!
+      activeBtn : 1,
       showNav : true,
       title: this.$t('app.title')
     };

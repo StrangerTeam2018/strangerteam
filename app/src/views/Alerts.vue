@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-layout(row, wrap, justify-between)
+  v-layout.mb-5(row, wrap, justify-between)
 
     v-flex(xs12, sm12)
       v-card
@@ -7,7 +7,7 @@
         v-card-title(primary-title)
           div
             .headline
-              div Peligro Inundaciones
+              div {{ $t('alerts.title_flooding_alert') }}
             span.grey--text Explicación de donde y cuando las inundaciones
         v-card-actions
           v-btn(flat, color='info') Más información
@@ -18,7 +18,6 @@
         v-slide-y-transition
           v-card-text(v-show='show')
             | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
-
 
     v-flex(xs12, sm12)
       v-card
