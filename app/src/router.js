@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Dashboard from './views/Dashboard.vue';
+import Alerts from './views/Alerts.vue';
+import ProtectYourselfFlooding from './views/ProtectYourself/Flooding.vue'
 
 Vue.use(Router);
 
@@ -17,8 +18,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: Dashboard,
+      name: 'alerts',
+      component: Alerts,
+    },
+    {
+      path: '/alerts',
+      name: 'alerts',
+      component: Alerts,
+    },
+    {
+      path: '/protect-yourself/flooding',
+      name: 'protect-yourself-flooding',
+      component: ProtectYourselfFlooding,
     },
     {
       path: '/first-aid',

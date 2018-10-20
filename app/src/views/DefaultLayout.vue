@@ -10,7 +10,7 @@ v-app#alertify
 
   template
       v-bottom-nav(:active.sync='activeBtn', :value='showNav', absolute, color='transparent')
-        v-btn(flat, color='teal', to='/')
+        v-btn(flat, color='teal', to='/alerts')
           span Alertas
           v-icon fa-skull-crossbones
         v-btn(flat, color='error', to='/request-help')
