@@ -27,6 +27,11 @@ export default new Router({
       component: Alerts,
     },
     {
+      path: '/request-help',
+      name: 'request-help',
+      component: lazyLoad ('RequestHelp')
+    },
+    {
       path: '/protect-yourself/flooding',
       name: 'protect-yourself-flooding',
       component: ProtectYourselfFlooding,

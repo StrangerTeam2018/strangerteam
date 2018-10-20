@@ -1,6 +1,11 @@
 <template lang="pug">
   div.first-aid(style="text-align: center;")
-    h1 First Aid!
+    v-toolbar(color='#89bf39' style="color: white !important")
+      v-toolbar-title Primeros Auxilios
+      v-spacer
+      v-btn(icon='' style="color: white !important")
+        v-icon fa-search
+
     v-list(two-line='')
       template(v-for='(item, index) in items')
         v-subheader(v-if='item.header', :key='item.header')
@@ -21,7 +26,7 @@ export default {
   data() {
     return {
       items : [
-        { header: 'Today' },
+        { header: '¿Qué ocurre?' },
         {
           avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
           title: 'Maniobra de heimlich',
