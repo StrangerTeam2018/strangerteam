@@ -1,17 +1,15 @@
 <template lang="pug">
   div.first-aid(style="text-align: center;")
-    v-toolbar(color='#89bf39' style="color: white !important")
-      v-toolbar-title Primeros Auxilios
+    v-toolbar(color='light-green darken-1' style="color: white !important")
+      v-toolbar-title First Aid
       v-spacer
       v-btn(icon='' style="color: white !important")
-    v-tabs(v-model='active', color='cyan', dark, slider-color='yellow')
+    
+    v-tabs(v-model='active', color='light-green lighten-2', dark, slider-color='yellow')
       v-tab
-        | ¿Qué ocurre?
+        | What's case?
       v-tab
-        | Todas las técnicas
-      v-tab-item(v-for='n in 3', :key='n')
-        v-card(flat)
-          v-card-text {{ text }}
+        | All first aid tecnhiques
 
     v-list(two-line v-if="active === 0")
       template(v-for='(item, index) in cases')
@@ -30,14 +28,22 @@
         v-subheader(v-if='item.header', :key='item.header')
           | {{ item.header }}
         v-divider(v-else-if='item.divider', :inset='item.inset', :key='index')
-        v-list-tile(v-else, :key='item.title', avatar, @click='')
-          v-list-tile-avatar
-            img(:src='item.avatar')
-          v-list-tile-content
-            v-list-tile-title(v-html='item.title')
-            v-list-tile-sub-title(v-html='item.subtitle')
+
+        router-link(v-else, :to="{ name: 'technique', params: {id: index.id} }")
+          v-list-tile( :key='item.title', avatar, @click='' )
+            v-list-tile-avatar
+              img(:src='item.avatar')
+            v-list-tile-content
+              v-list-tile-title(v-html='item.title')
+              v-list-tile-sub-title(v-html='item.subtitle')
 </template>
 
+<style>
+a {
+  text-decoration: none;
+  color: rgba(0,0,0,.87);
+}
+</style>
 <script>
 
 export default {
@@ -74,19 +80,19 @@ export default {
         {
           avatar: 'https://okdiario.com/img/2017/07/31/maniobra-de-heimlich-655x368.jpg',
           title: 'Maniobra de heimlich',
-          subtitle: "<span class='text--primary'>¿Cuándo?</span> &mdash; Si alguien ..."
+          id: 1
         },
         { divider: true, inset: true },
         {
           avatar: 'https://t2.uc.ltmcdn.com/images/9/5/5/img_como_actuar_ante_un_desmayo_23559_600.jpg',
           title: 'Desmayos',
-          subtitle: "<span class='text--primary'>¿Cuándo?</span> &mdash; Si alguien ..."
+          id: 2
         },
         { divider: true, inset: true },
         {
           avatar: 'https://www.ecestaticos.com/imagestatic/clipping/b23/c8d/b23c8d958075f6459c5f7e9f46f90a22/sintomas-de-infarto-senales-que-te-avisan-de-que-estas-a-punto-de-sufrir-un-ataque.jpg?mtime=1428823698',
           title: 'Ataque al corazón',
-          subtitle: "<span class='text--primary'>¿Cuándo?</span> &mdash; Si alguien ..."
+          id: 3
         },
         { divider: true, inset: true },
       ]

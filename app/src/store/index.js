@@ -27,12 +27,12 @@ export default new Vuex.Store({
     page : {
       initialized : false
     },
-    alert : {
+    alerts : [{
       type : 'flood', // FIXME!
       where : { lat : 38.928, long : 0.322 },
       brief : 'Está todo inundado!! Vamos a morir todos!',
       description : 'this is what needs to be displayed on the other page'
-    }
+    }]
   },
   mutations: {
     [types.SET_INITIALIZED] : function (state) {
@@ -42,7 +42,7 @@ export default new Vuex.Store({
       if (!alertData)
         return
 
-      Vue.set (state, 'alert', alertData);
+      Vue.set (state, 'alerts', alertData);
     }
   },
   actions: {
@@ -52,15 +52,16 @@ export default new Vuex.Store({
     // The idea is to initialize all the data needed to star the application
     // -------------------------------------------------------------------------
     async initialize (store) {
-      await store.dispatch ('getAlertInfo');
+      await store.dispatch ('getAlertInfo', { lat: 42.589, long : -5.57});
+      //await store.dispatch ('getAlertInfo', { lat: 42.99, long : -8.28});
       store.commit (types.SET_INITIALIZED);
     },
 
     // -------------------------------------------------------------------------
     // getAlertInfo
     // -------------------------------------------------------------------------
-    async getAlertInfo ({commit}) {
-      const data = await AlertsApi.fetchAlert ();
+    async getAlertInfo ({commit}, { lat, long }) {
+      const data = await AlertsApi.fetchAlert (lat, long);
       commit (types.SET_ALERT, data);
     }
 

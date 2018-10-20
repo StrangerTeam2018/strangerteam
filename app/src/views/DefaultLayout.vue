@@ -10,13 +10,13 @@ v-app#alertify
   template
       v-bottom-nav(:active.sync='activeBtn', :value='showNav', fixed, color='white')
         v-btn(flat, color='rgb(137, 191, 57)', to='/alerts')
-          span Alertas
-          v-icon fa-skull-crossbones
+          span Alerts
+          v-icon fa-exclamation-triangle
         v-btn(flat, color='error', to='/request-help')
-          span Solicitar Ayuda
+          span Need Help
           v-icon fa-ambulance
         v-btn(flat, color='rgb(137, 191, 57)', to='/first-aid')
-          span Primeros Auxilios
+          span First Aid
           v-icon fa-medkit
 
 </template>

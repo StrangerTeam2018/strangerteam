@@ -32,6 +32,12 @@ export default new Router({
       component: lazyLoad ('RequestHelp')
     },
     {
+      path: '/technique/:id',
+      name: 'technique',
+      component: lazyLoad ('Technique'),
+      props: true
+    },
+    {
       path: '/protect-yourself/flooding',
       name: 'protect-yourself-flooding',
       component: ProtectYourselfFlooding,

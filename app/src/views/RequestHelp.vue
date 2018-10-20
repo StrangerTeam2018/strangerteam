@@ -18,7 +18,6 @@ export default {
 };
 </script>
 <style>
-
   .v-toolbar__title {
     margin: 0 auto;
     display: block;
