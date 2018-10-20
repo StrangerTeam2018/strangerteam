@@ -123,10 +123,9 @@ module.exports = function() {
           status: alert.status
         };
         for (info of alert.info) {
-          if (info.language !== 'es-ES') {
+          if (info.language !== 'en-GB') {
             continue;
           }
-          // console.log(info)
           alerta.urgency = info.urgency;
           alerta.event = info.event;
           alerta.type = decodeEventCodeType(info.eventCode);
