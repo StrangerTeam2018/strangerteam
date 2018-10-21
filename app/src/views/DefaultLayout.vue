@@ -21,6 +21,12 @@ v-app#alertify
 
 </template>
 
+<style>
+    main {
+      background: #cfcfcf;
+    }
+</style>
+
 <script>
 import { mapState } from 'vuex'
 

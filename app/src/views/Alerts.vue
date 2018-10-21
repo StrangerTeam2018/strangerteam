@@ -4,7 +4,9 @@
       v-card
         v-card-title
           v-flex(text-xs-center)
-            v-progress-circular(indeterminate color="#6cf" size="80")
+            v-img(src="https://i.pinimg.com/originals/e9/e9/90/e9e99039ad9f8445e9b747f8e0b159ab.gif" height="200") 
+            p(style="margin-top: 2rem") Loading ...
+            <!--v-progress-circular(indeterminate color="#6cf" size="80")-->
 
     template(v-else, v-for="alert in alerts")
       v-alert-event(:title="$t('alerts.title_' + alert.type + '_alert')", :alert="alert", :alertMap="alertMap")
