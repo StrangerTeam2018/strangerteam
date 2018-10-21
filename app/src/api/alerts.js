@@ -19,10 +19,11 @@ export default {
       const knownAlerts = [];
       for (let i = 0; i < response.data.length; i++) {
         const alert = response.data[i];
-        alert.id = i;
 
-        if (KNOWN_ALERTS.indexOf(',' + alert.type + ',') >= 0)
+        if (KNOWN_ALERTS.indexOf(',' + alert.type + ',') >= 0) {
+          alert.id = knownAlerts.length;
           knownAlerts.push (alert);
+        }
       }
 
       // prepare images for the frontend

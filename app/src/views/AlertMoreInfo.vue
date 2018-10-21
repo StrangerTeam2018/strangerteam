@@ -7,14 +7,16 @@
 
     v-card(style="text-align: left")
       v-card-text
+        | {{ alert.headline }}
+
+      v-card-text
         div(v-for="line in alert.more_lines")
           | {{ line }}
 
       v-card-text(id="map")
         div
-          v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+          v-flex(v-if='alertMap && alertMap.url')
             v-img(:src='alertMap.url')
-
 
 </template>
 

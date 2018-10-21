@@ -72,8 +72,6 @@ export default new Vuex.Store({
         }
       });
       await store.dispatch ('getAlertInfo', position);
-      //await store.dispatch ('getAlertInfo', { lat: 42.99, long : -8.28});
-
       await store.dispatch ('getAlertMap', position);
 
       store.commit (types.SET_INITIALIZED);

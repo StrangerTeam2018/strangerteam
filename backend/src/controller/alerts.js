@@ -13,7 +13,7 @@ module.exports = function(config) {
     const long = req.params.long;
 
     try {
-      const aemetAlerts = []; //await AemetAlerts.alertByGeoLoc (lat, long);
+      const aemetAlerts = await AemetAlerts.alertByGeoLoc (lat, long);
       const nasaAlerts = await NasaAlerts.alertByGeoLoc (lat, long);
 
       const allAlerts = [].concat (aemetAlerts, nasaAlerts);

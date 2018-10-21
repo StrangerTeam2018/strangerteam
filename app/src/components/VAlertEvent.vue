@@ -7,10 +7,12 @@
         div(xs12 style='display: block; width:100%;')
           .headline(style='float: left;')
             div {{ title }}
+
           div(style='float: right;')
             v-chip(v-if='alert.level == "low"' color="success" text-color="white" small) low risk
             v-chip(v-else-if='alert.level == "medium"' color="orange" text-color="white" small) medium risk
             v-chip(v-else-if='alert.level == "high"' color="error" text-color="white" small) high risk
+
         span.grey--text {{ alert.headline }} {{ alert.type }}
 
       v-card-actions
@@ -26,7 +28,7 @@
             | {{ line }}
           br
           div
-            v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+            v-flex(v-if='alertMap && alertMap.url')
               v-img(:src='alertMap.url')
 
 </template>

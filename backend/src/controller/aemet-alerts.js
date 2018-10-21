@@ -286,11 +286,12 @@ module.exports = function(config) {
       }
 
       if (!(autcom in autcomToAEMETCode))
-        return { url: '' }
+        return { url: '' };
 
      const mapUrl = await getMap(autcomToAEMETCode[autcom], {lat: lat, lon: long});
      return { url: mapUrl }
     } catch (err) {
+      console.log (err)
       return null
     }
   }
