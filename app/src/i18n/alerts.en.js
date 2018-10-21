@@ -1,7 +1,7 @@
 
 
 export default {
-  title_flooding_alert : 'Flooding Alert',
+  title_flood_alert : 'Flood Alert',
   title_heatwave_alert: 'Heat wave Alert',
   title_coldwave_alert: 'Cold wave Alert',
   title_fog_alert: 'Dense Fog Alert',
