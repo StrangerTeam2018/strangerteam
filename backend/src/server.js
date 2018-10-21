@@ -63,7 +63,7 @@ class Server {
     //   })
     // );
 
-    routes(app);
+    routes(app, this.config);
 
     return app;
   }

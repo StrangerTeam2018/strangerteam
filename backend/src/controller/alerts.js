@@ -4,9 +4,9 @@ const geocoder = require('../geo-resolve');
 const geolib = require('geolib');
 const nodexml = require('nodexml');
 
-module.exports = function() {
+module.exports = function(config) {
 
-  const apiKey = '***REMOVED***';
+  const apiKey = config.AEMET.apiKey || '';
 
   async function getAlertsLinkData(location) {
     const url = 'https://opendata.aemet.es/opendata/api/avisos_cap/ultimoelaborado/area/' +

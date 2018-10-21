@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(config) {
 
   const version = (req, res, next) => {
     return res.json({
