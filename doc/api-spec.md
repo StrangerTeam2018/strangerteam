@@ -11,7 +11,9 @@
     when : {
       activated: WHEN_ACTIVATED,
       expires:   WHEN_EXPIRES
-    }
+    },
+    area : COORDINATES,
+    more_lines : ARRAY_OF_STRINGS
   }
 
 
@@ -51,3 +53,6 @@
 
   Date-time when this alert was activated
 
+- **MORE_LINES** (list of strings):
+
+  Array of strings with more information to show.

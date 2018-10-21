@@ -7,10 +7,10 @@
           .headline
             div Be Prepared!
       v-card-text
-         p A flood is a overflow of water on land which is usually dry.            
+         p A flood is a overflow of water on land which is usually dry.
           v-expansion-panel
             v-expansion-panel-content.cyan.darken-3.elevation-8.mt-2
-              div(slot="header") Main causes 
+              div(slot="header") Main causes
               v-card(color="cyan darken-3", dark)
                 v-card-text
                   ul
@@ -20,23 +20,23 @@
                     li tides rise over normal level
                     li tsunami
                     li hurricanes,...
-    v-card.ma-4.elevation-8(color="purple", dark)
+    v-card.ma-4.elevation-8(color="green", dark)
       v-card-title(primary-title)
         div
           .headline Flood Safety Tips
       v-card-text
         v-expansion-panel
-            v-expansion-panel-content.purple.darken-3.elevation-8.mt-2
-              div(slot="header") Before a Flood 
-              v-card(color="purple darken-3", dark)
+            v-expansion-panel-content.green.darken-3.elevation-8.mt-2
+              div(slot="header") Before a Flood
+              v-card(color="green darken-3", dark)
                 v-card-text
                   ul
                     li Construct barriers to stop floodwater from entering your home
                     li Listen to the radio or television for information
         v-expansion-panel
-            v-expansion-panel-content.purple.darken-3.elevation-8.mt-2
+            v-expansion-panel-content.green.darken-3.elevation-8.mt-2
               div(slot="header") When a Flood is Imminent
-              v-card(color="purple darken-3", dark)            
+              v-card(color="green darken-3", dark)
                 ul
                   li Pack a bag with important items in case you need to evacuate, this should include:
                     ul
@@ -53,18 +53,18 @@
                   li If there is any possibility of flash flood, move to higher ground
                   li If advised to evacuate, do so immediatly
         v-expansion-panel
-            v-expansion-panel-content.purple.darken-3.elevation-8.mt-2
+            v-expansion-panel-content.green.darken-3.elevation-8.mt-2
               div(slot="header") During a Flood
-              v-card(color="purple darken-3", dark)        
+              v-card(color="green darken-3", dark)
                 ul
                   li Do not walk through moving water
                   li If you have to walk in water, walk where the water is not moving. Use a stick to check the firmness of the ground
                   li Do not drive into flooded areas. If floodwaters rise around rise around your car, abandon the card and move to higher ground
                   li Do not touch electrical equipment if you are wet or standing in water
         v-expansion-panel
-            v-expansion-panel-content.purple.darken-3.elevation-8.mt-2
+            v-expansion-panel-content.green.darken-3.elevation-8.mt-2
               div(slot="header") After a Flood
-              v-card(color="purple darken-3", dark)      
+              v-card(color="green darken-3", dark)
                 ul
                   li Listen for news reports to be aware whether the water supply is safe
                   li Avoid floodwaters because they may be contaminated and/or electrically charged

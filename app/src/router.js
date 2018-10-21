@@ -5,7 +5,7 @@ import ProtectYourselfFlooding from './views/ProtectYourself/Flooding.en.vue'
 import ProtectYourselfStorm from './views/ProtectYourself/Storm.en.vue'
 import ProtectYourselfRain from './views/ProtectYourself/Rain.en.vue'
 import ProtectYourselfColdWave from './views/ProtectYourself/ColdWave.en.vue'
-import ProtectYourselfHotWave from './views/ProtectYourself/HotWave.en.vue'
+import ProtectYourselfHeatWave from './views/ProtectYourself/HeatWave.en.vue'
 import ProtectYourselfSnow from './views/ProtectYourself/Snow.en.vue'
 import ProtectYourselfFog from './views/ProtectYourself/Fog.en.vue'
 import ProtectYourselfWind from './views/ProtectYourself/Wind.en.vue'
@@ -67,9 +67,9 @@ export default new Router({
       component: ProtectYourselfColdWave,
     },
     {
-      path: '/protect-yourself/hotwave',
-      name: 'protect-yourself-hotwave',
-      component: ProtectYourselfHotWave,
+      path: '/protect-yourself/heatwave',
+      name: 'protect-yourself-heatwave',
+      component: ProtectYourselfHeatWave,
     },
     {
       path: '/protect-yourself/snow',

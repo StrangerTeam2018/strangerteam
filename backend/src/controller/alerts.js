@@ -81,15 +81,15 @@ module.exports = function() {
     let code = 'unknown';
 
     parameters.forEach(element => {
-      if (element.value === 'verde') {
+      if (element.value === 'verde' || element.value === 'green') {
         code = 'low';
       }
 
-      if (element.value === 'amarillo') {
+      if (element.value === 'amarillo' || element.value === 'yellow') {
         code = 'medium';
       }
 
-      if (element.value === 'red') {
+      if (element.value === 'red' || element.value === 'rojo') {
         code = 'high';
       }
     });
@@ -136,8 +136,11 @@ module.exports = function() {
             expires: info.expires
           };
           alerta.more_lines = [];
+          if (info.event) {
+            alerta.more_lines.push (alerta.event);
+          }
           if (info.instruction) {
-            alerta.more_lines.push(info.instruction)
+            alerta.more_lines.push(info.instruction);
           }
           alerta.area = [];
           let areas = info.area;
