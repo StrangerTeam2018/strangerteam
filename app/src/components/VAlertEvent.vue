@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-flex(xs12, sm12)
+  v-flex.mb-3(xs12, sm12)
     v-card()
       v-img(:src='require(`@/assets/${alert.type}.gif`)', height='200px')
 
@@ -30,6 +30,7 @@
           div
             v-flex(v-if='alertMap && alertMap.url')
               v-img(:src='alertMap.url')
+
 
 </template>
 
