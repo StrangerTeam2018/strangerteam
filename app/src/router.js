@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Alerts from './views/Alerts.vue';
-import ProtectYourselfFlooding from './views/ProtectYourself/Flooding.en.vue'
+import ProtectYourselfFlood from './views/ProtectYourself/Flood.en.vue'
 import ProtectYourselfStorm from './views/ProtectYourself/Storm.en.vue'
 import ProtectYourselfRain from './views/ProtectYourself/Rain.en.vue'
 import ProtectYourselfColdWave from './views/ProtectYourself/ColdWave.en.vue'
@@ -52,9 +52,9 @@ export default new Router({
       props: true
     },
     {
-      path: '/protect-yourself/flooding',
-      name: 'protect-yourself-flooding',
-      component: ProtectYourselfFlooding,
+      path: '/protect-yourself/flood',
+      name: 'protect-yourself-flood',
+      component: ProtectYourselfFlood,
     },
     {
       path: '/protect-yourself/storm',
@@ -90,6 +90,11 @@ export default new Router({
       path: '/protect-yourself/wind',
       name: 'protect-yourself-wind',
       component: ProtectYourselfWind,
+    },
+    {
+      path: '/protect-yourself/eruption',
+      name: 'protect-yourself-eruption',
+      component: ProtectYourselfFlood,
     },
     {
       path: '/protect-yourself/dust',
