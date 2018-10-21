@@ -16,12 +16,13 @@
         v-subheader(v-if='item.header', :key='item.header')
           | {{ item.header }}
         v-divider(v-else-if='item.divider', :inset='item.inset', :key='index')
-        v-list-tile(v-else, :key='item.title', avatar, @click)
-          v-list-tile-avatar
-            img(:src='item.avatar')
-          v-list-tile-content
-            v-list-tile-title(v-html='item.title')
-            v-list-tile-sub-title(v-html='item.subtitle')
+        router-link(v-else, :to="{ name: 'technique', params: {id: index.id} }")
+          v-list-tile(:key='item.title', avatar, @click)
+            v-list-tile-avatar
+              img(:src='item.avatar')
+            v-list-tile-content
+              v-list-tile-title(v-html='item.title')
+              v-list-tile-sub-title(v-html='item.subtitle')
 
     v-list(two-line v-if="active === 1")
       template(v-for='(item, index) in techniques')

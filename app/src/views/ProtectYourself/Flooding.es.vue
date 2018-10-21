@@ -3,9 +3,11 @@
   v-flex(xs12, sm12)
     v-card.ma-4.elevation-8(color="cyan darken-2", dark)
       v-card-title(primary-title)
-        div
-          .headline
-            div Protégete de las inundaciones
+        v-flex(xs11, sm11)
+          div
+            .headline
+              div Protégete de las inundaciones
+        v-img(:src='require(`@/assets/be_prepared.png`)', height="50px", contain)
       v-card-text
          p Una inundación es la ocupación por parte del agua de zonas que habitualmente están libres de esta.
             p Sus principales causas son:
@@ -19,8 +21,10 @@
 
     v-card.ma-4.elevation-8(color="green", dark)
       v-card-title(primary-title)
-        div
-          .headline Consejos de Seguridad
+        v-flex(xs11, sm11)
+          div
+            .headline Consejos de Seguridad
+        v-img(:src='require(`@/assets/safety.png`)', height="50px", contain)
       v-card-text
         p Antes de la inundación
           ul
