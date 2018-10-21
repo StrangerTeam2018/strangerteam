@@ -7,3 +7,4 @@ safe - https://giphy.com/gifs/cheer-cheering-11sBLVxNs7v6WA
 dust - https://giphy.com/gifs/comic-better-not-gdjPwhhe7cxyM
 storm - https://giphy.com/gifs/storm-vS09bj1KrXwje
 fog - https://giphy.com/gifs/foggy-gif-T4vONWBqkfwfm
+disasters - https://www.nasa.gov/sites/default/files/styles/side_image/public/thumbnails/image/disasters_logo_0_1.png?itok=JnaHTq5j
