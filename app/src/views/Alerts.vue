@@ -7,7 +7,7 @@
             v-progress-circular(indeterminate color="#6cf" size="80")
 
     template(v-else, v-for="alert in alerts")
-      v-alert-event(:title="$t('alerts.title_' + alert.type + '_alert')", :alert="alert")
+      v-alert-event(:title="$t('alerts.title_' + alert.type + '_alert')", :alert="alert", :alertMap="alertMap")
 
 </template>
 
@@ -32,6 +32,9 @@ export default {
       },
       alerts : state => {
         return state.alerts
+      },
+      alertMap : state => {
+        return state.alertMap
       }
     })
   }

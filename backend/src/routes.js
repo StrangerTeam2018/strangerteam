@@ -8,5 +8,7 @@ module.exports = function(app) {
 
   router.get('/alerts/:lat/:long', alerts.alertByGeoLoc);
 
+  router.get('/alerts/map/:lat/:long', alerts.mapByGeoLoc);
+
   app.use('/api', router);
 }

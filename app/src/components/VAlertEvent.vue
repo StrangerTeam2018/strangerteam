@@ -24,6 +24,11 @@
         v-card-text(v-show='show')
           div(v-for='line in alert.more_lines')
             | {{ line }}
+          br
+          div
+            v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+              v-img(:src='alertMap.url')
+
 </template>
 
 <script>
@@ -36,7 +41,8 @@ export default {
   },
   props: {
     title : String,
-    alert : Object
+    alert : Object,
+    alertMap: String
   },
 };
 </script>

@@ -11,7 +11,10 @@
           | {{ line }}
 
       v-card-text(id="map")
-        | this is the map
+        div
+          v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+            v-img(:src='alertMap.url')
+
 
 </template>
 
@@ -31,6 +34,9 @@ export default {
       if (this.$store.state.alerts.length == 0)
         return null;
       return this.$store.state.alerts[this.id]
+    },
+    alertMap()  {
+      return this.$store.state.alertMap;
     }
   },
 

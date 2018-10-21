@@ -12,6 +12,7 @@ const types = {};
 const typeNames = [
   'SET_INITIALIZED',
   'SET_ALERT',
+  'SET_ALERT_MAP',
 ]
 for (const name of typeNames) {
   types[name] = name;
@@ -31,11 +32,10 @@ export default new Vuex.Store({
       lat : 38.928,
       long : 0.322
     },
-    alerts : []
-      // type : 'flood', // FIXME!
-      // where : { lat : 38.928, long : 0.322 },
-      // brief : 'Está todo inundado!! Vamos a morir todos!',
-      // description : 'this is what needs to be displayed on the other page'
+    alerts : [],
+    alertMap: {
+      url: ''
+    }
   },
   mutations: {
     [types.SET_INITIALIZED] : function (state) {
@@ -46,6 +46,12 @@ export default new Vuex.Store({
         return
 
       Vue.set (state, 'alerts', alertData);
+    },
+    [types.SET_ALERT_MAP] : function (state, mapData) {
+      if (!mapData)
+        return
+
+      Vue.set (state, 'alertMap', mapData);
     }
   },
   actions: {
@@ -55,8 +61,21 @@ export default new Vuex.Store({
     // The idea is to initialize all the data needed to star the application
     // -------------------------------------------------------------------------
     async initialize (store) {
-      await store.dispatch ('getAlertInfo', { lat: 42.589, long : -5.57});
+      let position = await new Promise(function(resolve) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              resolve({ lat: position.coords.latitude, long: position.coords.longitude});
+            });
+        }
+        else {
+          resolve({ lat: 42.589, long : -5.57});
+        }
+      });
+      await store.dispatch ('getAlertInfo', position);
       //await store.dispatch ('getAlertInfo', { lat: 42.99, long : -8.28});
+
+      await store.dispatch ('getAlertMap', position);
+
       store.commit (types.SET_INITIALIZED);
     },
 
@@ -66,7 +85,14 @@ export default new Vuex.Store({
     async getAlertInfo ({commit}, { lat, long }) {
       const data = await AlertsApi.fetchAlert (lat, long);
       commit (types.SET_ALERT, data);
-    }
+    },
 
+    // -------------------------------------------------------------------------
+    // getAlertMap
+    // -------------------------------------------------------------------------
+    async getAlertMap ({commit}, { lat, long }) {
+      const data = await AlertsApi.fetchAlertMap (lat, long);
+      commit (types.SET_ALERT_MAP, data);
+    }
   }
 });
