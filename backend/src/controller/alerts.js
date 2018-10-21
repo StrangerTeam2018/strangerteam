@@ -7,7 +7,7 @@ const nodexml = require('nodexml');
 module.exports = function(config) {
   const AemetAlerts = require('./aemet-alerts.js')(config);
   const NasaAlerts = require('./nasa-alerts.js')(config);
-  
+
   const alertByGeoLoc = async (req, res, next) => {
     const lat = req.params.lat;
     const long = req.params.long;
@@ -34,7 +34,8 @@ module.exports = function(config) {
     const lat = req.params.lat;
     const long = req.params.long;
     try {
-      return await AemetAlerts.mapByGeoLoc (lat, long);
+      const mapUrl = await AemetAlerts.mapByGeoLoc (lat, long);
+      return res.json(mapUrl).end();
     }
     catch (err) {
       return res.status(400).json({
