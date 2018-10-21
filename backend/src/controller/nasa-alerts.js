@@ -37,6 +37,7 @@ module.exports = function() {
 
         normalized.push ({
           type : eventType,
+          level : 'high',
           headline : event.title,
           more_lines : [event.description]
           // area

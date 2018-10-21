@@ -16,7 +16,7 @@ module.exports = function(config) {
       const aemetAlerts = await AemetAlerts.alertByGeoLoc (lat, long);
       const nasaAlerts = await NasaAlerts.alertByGeoLoc (lat, long);
 
-      const allAlerts = [].concat (aemetAlerts, nasaAlerts);
+      const allAlerts = [].concat (nasaAlerts, aemetAlerts);
 
       // TODO: sort by severity and recentness
 
