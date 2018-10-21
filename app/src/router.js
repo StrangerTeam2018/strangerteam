@@ -36,6 +36,11 @@ export default new Router({
       component: Alerts,
     },
     {
+      path: '/alert-more-info/:id',
+      name: 'more-info',
+      component: lazyLoad ('AlertMoreInfo')
+    },
+    {
       path: '/request-help',
       name: 'request-help',
       component: lazyLoad ('RequestHelp')

@@ -14,7 +14,7 @@
         span.grey--text {{ alert.headline }} {{ alert.type }}
 
       v-card-actions
-        v-btn(flat, color='info') {{ $t('alerts.more_info_text') }}
+        v-btn(flat, color='info' :to='"/alert-more-info/" + alert.id') {{ $t('alerts.more_info_text') }}
         v-btn(flat, color='info', :to='"/protect-yourself/" + alert.type') {{ $t('alerts.keep_safe') }}
         v-spacer
         v-btn(icon, @click='show = !show')

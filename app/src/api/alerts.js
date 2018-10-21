@@ -15,9 +15,12 @@ export default {
       if (response.data.lenght == 0)
         return ALERT_SAFE;
 
+      // filter out unknown alerts and prepare internal alert.id
       const knownAlerts = [];
       for (let i = 0; i < response.data.length; i++) {
         const alert = response.data[i];
+        alert.id = i;
+
         if (KNOWN_ALERTS.indexOf(',' + alert.type + ',') >= 0)
           knownAlerts.push (alert);
       }
