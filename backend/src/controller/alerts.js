@@ -187,6 +187,25 @@ module.exports = function() {
     return alerts;
   }
 
+  async function getMapLinkData(location) {
+    const url = 'https://opendata.aemet.es/opendata/api/mapasygraficos/mapassignificativos/' +
+    location +
+    '/c' +
+    '?api_key=' + apiKey;
+    try {
+      const resp = await axios.get(url);
+      return resp.data;
+    } catch(err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+  async function getMap(location, geoloc) {
+    const mapData = await getMapLinkData(location);
+    return mapData.datos;
+  }
+
   const alertByGeoLoc = async (req, res, next) => {
     const lat = req.params.lat;
     const long = req.params.long;
@@ -222,6 +241,9 @@ module.exports = function() {
         'Rioja, La': 76
       }
 
+      if (!(autcom in autcomToAEMETCode))
+        return res.json([]).end();
+
       const alerts = await getAlerts(autcomToAEMETCode[autcom], {lat: lat, lon: long});
 
       return res.json(alerts).end();
@@ -232,7 +254,55 @@ module.exports = function() {
     }
   }
 
+  const mapByGeoLoc = async (req, res, next) => {
+    const lat = req.params.lat;
+    const long = req.params.long;
+
+    try {
+      const resolved = await geocoder.reverse(lat, long);
+      const autcom = await geocoder.administrativeLevel(resolved[0]);
+      if (!autcom) {
+        console.error('Unable to get administrative level from', resolved[0]);
+        // Return error
+      }
+
+      const autcomToAEMETCode = {
+        'España': 'esp',
+        'Andalucía': 'and',
+        'Aragón': 'arn',
+        'Asturias, Principado de': 'ast',
+        'Ballears, Illes': 'bal',
+        'Ceuta': '',
+        'Canarias': 'coo',
+        'Cantabria': 'can',
+        'Castilla y León': 'cle',
+        'Castilla - La Mancha': 'clm',
+        'Cataluña': 'cat',
+        'Comunitat Valenciana': 'val',
+        'Extremadura': 'ext',
+        'Galicia': 'gal',
+        'Madrid, Comunidad de': 'mad',
+        'Melilla': '',
+        'Murcia, Región de': 'mur',
+        'Navarra, Comunidad Foral de': 'nav',
+        'País Vasco': 'pva',
+        'Rioja, La': 'rio'
+      }
+      if (!(autcom in autcomToAEMETCode))
+        return res.json({ url: '' }).end();
+
+      const mapUrl = await getMap(autcomToAEMETCode[autcom], {lat: lat, lon: long});
+
+      return res.json({ url: mapUrl }).end();
+    } catch (err) {
+      return res.status(400).json({
+        error: err.message
+      });
+    }
+  }
+
   return {
-    alertByGeoLoc: alertByGeoLoc
+    alertByGeoLoc: alertByGeoLoc,
+    mapByGeoLoc: mapByGeoLoc
   }
 }

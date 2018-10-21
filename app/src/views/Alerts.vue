@@ -25,6 +25,9 @@
               v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
           v-slide-y-transition
             v-card-text(v-show='show')
+              div
+                v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+                  v-img(:src='alertMap.url')
               | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
 
@@ -44,6 +47,9 @@
               v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
           v-slide-y-transition
             v-card-text(v-show='show')
+              div
+                v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+                  v-img(:src='alertMap.url')
               | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
       v-flex(v-else-if='alert.type == "flood"', xs12, sm12)
@@ -62,6 +68,9 @@
               v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
           v-slide-y-transition
             v-card-text(v-show='show')
+              div
+                v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+                  v-img(:src='alertMap.url')
               | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
       v-flex(v-else-if='alert.type == "rain"', xs12, sm12)
@@ -80,6 +89,9 @@
               v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
           v-slide-y-transition
             v-card-text(v-show='show')
+              div
+                v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+                  v-img(:src='alertMap.url')
               | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
 
@@ -99,6 +111,9 @@
               v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
           v-slide-y-transition
             v-card-text(v-show='show')
+              div
+                v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+                  v-img(:src='alertMap.url')
               | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
       v-flex(v-else-if='alert.type == "eruption"', xs12, sm12)
@@ -117,6 +132,9 @@
               v-icon {{ show ? 'fa-chevron-up' : 'fa-chevron-down' }}
           v-slide-y-transition
             v-card-text(v-show='show')
+              div
+                v-flex(v-if='alertMap && alertMap.url', xs2, sm2)
+                  v-img(:src='alertMap.url')
               | I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
 
       v-flex(v-else-if="alert.type == 'safe'", xs12, sm12)
@@ -147,6 +165,9 @@ export default {
       },
       alerts : state => {
         return state.alerts
+      },
+      alertMap : state => {
+        return state.alertMap
       }
     })
   }

@@ -61,5 +61,19 @@ export default {
       console.log (e)
       return { type : 'safe' };
     }
+  },
+
+  async fetchAlertMap(latitude, longitude) {
+    try {
+      const response = await axios.get (`/api/alerts/map/${latitude}/${longitude}`);
+      if (response.data.lenght == 0)
+        return { url : '' };
+
+      return response.data;
+    }
+    catch(e) {
+      console.log (e)
+      return { url : '' };
+    }
   }
 }
